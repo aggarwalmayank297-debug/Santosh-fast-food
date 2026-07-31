@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santosh Chaat Center & Fast Food</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff4757;
+            --secondary-color: #2f3542;
+            --bg-color: #f1f2f6;
+            --white: #ffffff;
+            --text-color: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header & Hero */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #ff6b81;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .badge-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .badge i {
+            color: #ffd700;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background-color: #ff6b81;
+        }
+
+        .btn-whatsapp {
+            background-color: #25d366;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1ebe5d;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2.section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        h2.section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            display: block;
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Info Card */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .info-card i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .info-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Menu Section */
+        .menu-category {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .menu-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            border-bottom: 2px solid #f1f2f6;
+            padding-bottom: 8px;
+        }
+
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px dashed #e4e4e4;
+        }
+
+        .menu-item .name {
+            font-weight: 500;
+        }
+
+        .menu-item .price {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        /* Reviews Section */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .review-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            font-style: italic;
+            position: relative;
+        }
+
+        .review-card::before {
+            content: '"';
+            font-size: 4rem;
+            color: #f1f2f6;
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            z-index: 0;
+        }
+
+        .review-card p {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 10px;
+        }
+
+        .review-card .author {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            text-align: right;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Hero -->
+    <header>
+        <h1>Santosh Chaat Center</h1>
+        <p>Your Ultimate Destination for Delicious Fast Food, Momos & Snacks</p>
+        
+        <div class="badge-container">
+            <div class="badge"><i class="fas fa-star"></i> 4.1 Rating (140+ Reviews)</div>
+            <div class="badge"><i class="fas fa-utensils"></i> Fast Food & Casual Cafe</div>
+            <div class="badge"><i class="fas fa-rupee-sign"></i> ₹1–200 per person</div>
+            <div class="badge"><i class="fas fa-clock"></i> 11:00 AM – 9:00 PM</div>
+        </div>
+
+        <div class="cta-buttons">
+            <a href="tel:09211769710" class="btn"><i class="fas fa-phone"></i> Call Now</a>
+            <a href="https://wa.me/919211769710" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Info Section -->
+        <section class="info-grid">
+            <div class="info-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Location</h3>
+                <p>Adarsh Nagar, FCA-35, Malerna Rd, Near B.S. Memorial School, Ballabhgarh, Faridabad, Haryana 121004</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-clock"></i>
+                <h3>Opening Hours</h3>
+                <p>Open Daily<br>11:00 AM – 9:00 PM</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-concierge-bell"></i>
+                <h3>Popular Choices</h3>
+                <p>Fried Burgers, Chowmein, Spring Rolls, Momos & Masala Dosa</p>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section id="menu">
+            <h2 class="section-title">Our Menu</h2>
+
+            <!-- Momos -->
+            <div class="menu-category">
+                <h3>Momos (Full - 8 Pcs)</h3>
+                <div class="menu-items">
+                    <div class="menu-item"><span class="name">Steam Veg Momos</span><span class="price">₹50</span></div>
+                    <div class="menu-item"><span class="name">Steam Soyabean Momos</span><span class="price">₹50</span></div>
+                    <div class="menu-item"><span class="name">Steam Paneer Momos</span><span class="price">₹70</span></div>
+                    <div class="menu-item"><span class="name">Fry Veg Momos</span><span class="price">₹60</span></div>
+                    <div class="menu-item"><span class="name">Fry Soyabean Momos</span><span class="price">₹60</span></div>
+                    <div class="menu-item"><span class="name">Fry Paneer Momos</span><span class="price">₹80</span></div>
+                    <div class="menu-item"><span class="name">Garlic Veg Momos</span><span class="price">₹100</span></div>
+                    <div class="menu-item"><span class="name">Garlic Paneer Momos</span><span class="price">₹120</span></div>
+                    <div class="menu-item"><span class="name">Kurkure Veg Momos</span><span class="price">₹100</span></div>
+                    <div class="menu-item"><span class="name">Kurkure Paneer Momos</span><span class="price">₹120</span></div>
+                    <div class="menu-item"><span class="name">Afghani Veg Momos</span><span class="price">₹120</span></div>
+                    <div class="menu-item"><span class="name">Afghani Paneer Momos</span><span class="price">₹140</span></div>
+                </div>
+            </div>
+
+            <!-- Burgers -->
+            <div class="menu-category">
+                <h3>Burgers</h3>
+                <div class="menu-items">
+                    <div class="menu-item"><span class="name">Fry Burger</span><span class="price">₹30</span></div>
+                    <div class="menu-item"><span class="name">Fry Paneer Burger</span><span class="price">₹40</span></div>
+                    <div class="menu-item"><span class="name">Double Tikki Burger</span><span class="price">₹40</span></div>
+                    <div class="menu-item"><span class="name">Grill Burger</span><span class="price">₹40</span></div>
+                    <div class="menu-item"><span class="name">Paneer Grill Burger</span><span class="price">₹50</span></div>
+                    <div class="menu-item"><span class="name">Cheese Grill Burger</span><span class="price">₹60</span></div>
+                    <div class="menu-item"><span class="name">Kurkure Burger</span><span class="price">₹60</span></div>
+                    <div class="menu-item"><span class="name">Paneer Kurkure Burger</span><span class="price">₹70</span></div>
+                    <div class="menu-item"><span class="name">Cheese Kurkure Burger</span><span class="price">₹70</span></div>
+                    <div class="menu-item"><span class="name">Cheese Paneer Kurkure Burger</span><span class="price">₹80</span></div>
+                </div>
+            </div>
+
+            <!-- Spring Rolls -->
+            <div class="menu-category">
+                <h3>Spring Rolls</h3>
+                <div class="menu-items">
+                    <div class="menu-item"><span class="name">Veg Spring Roll</span><span class="price">₹50</span></div>
+                    <div class="menu-item"><span class="name">Paneer Spring Roll</span><span class="price">₹70</span></div>
+                    <div class="menu-item"><span class="name">Veg Kurkure Spring Roll</span><span class="price">₹100</span></div>
+                    <div class="menu-item"><span class="name">Paneer Kurkure Spring Roll</span><span class="price">₹110</span></div>
+                    <div class="menu-item"><span class="name">Veg Garlic Spring Roll</span><span class="price">₹100</span></div>
+                    <div class="menu-item"><span class="name">Paneer Garlic Spring Roll</span><span class="price">₹120</span></div>
+                    <div class="menu-item"><span class="name">Veg Afghani Spring Roll</span><span class="price">₹120</span></div>
+                    <div class="menu-item"><span class="name">Paneer Afghani Spring Roll</span><span class="price">₹140</span></div>
+                </div>
+            </div>
+
+            <!-- Chowmein & Manchurian -->
+            <div class="menu-category">
+                <h3>Chowmein & Manchurian (Half / Full)</h3>
+                <div class="menu-items">
+                    <div class="menu-item"><span class="name">Chowmein</span><span class="price">₹40 / ₹80</span></div>
+                    <div class="menu-item"><span class="name">Chilli Garlic Chowmein</span><span class="price">₹60 / ₹100</span></div>
+                    <div class="menu-item"><span class="name">Hakka Chowmein</span><span class="price">₹70 / ₹120</span></div>
+                    <div class="menu-item"><span class="name">Singapuri Chowmein</span><span class="price">₹70 / ₹120</span></div>
+                    <div class="menu-item"><span class="name">Paneer Chowmein</span><span class="price">₹80 / ₹140</span></div>
+                    <div class="menu-item"><span class="name">Veg Manchurian</span><span class="price">₹40 / ₹90</span></div>
+                    <div class="menu-item"><span class="name">Fry Manchurian</span><span class="price">₹60 / ₹100</span></div>
+                    <div class="menu-item"><span class="name">Paneer Afghani Manchurian</span><span class="price">₹120 / ₹200</span></div>
+                </div>
+            </div>
+
+            <!-- Masala Dosa & French Fries -->
+            <div class="menu-category">
+                <h3>Masala Dosa & French Fries</h3>
+                <div class="menu-items">
+                    <div class="menu-item"><span class="name">Masala Dosa</span><span class="price">₹80</span></div>
+                    <div class="menu-item"><span class="name">Cheese Masala Dosa</span><span class="price">₹100</span></div>
+                    <div class="menu-item"><span class="name">Paneer Masala Dosa</span><span class="price">₹100</span></div>
+                    <div class="menu-item"><span class="name">Veg Paneer Masala Dosa</span><span class="price">₹120</span></div>
+                    <div class="menu-item"><span class="name">Jini Dosa</span><span class="price">₹160</span></div>
+                    <div class="menu-item"><span class="name">French Fries (Half/Full)</span><span class="price">₹40 / ₹70</span></div>
+                    <div class="menu-item"><span class="name">Peri Peri Masala Fries</span><span class="price">₹50 / ₹80</span></div>
+                    <div class="menu-item"><span class="name">Honey Chilli Potato</span><span class="price">₹70 / ₹120</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Reviews -->
+        <section>
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <p>His restaurant is amazing and food and service also amazing.</p>
+                    <div class="author">- Google Review</div>
+                </div>
+                <div class="review-card">
+                    <p>Best place I recommend people to come n tried. Open time 11am closed 9pm.</p>
+                    <div class="author">- Google Review</div>
+                </div>
+                <div class="review-card">
+                    <p>The quality of food is also satisfactory. Its neither very spicy and nor too odd.</p>
+                    <div class="author">- Google Review</div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Santosh Chaat Center & Fast Food. All Rights Reserved.</p>
+        <p>Contact: 092117 69710 | Ballabhgarh, Faridabad</p>
+    </footer>
+
+</body>
+</html>
